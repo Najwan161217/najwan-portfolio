@@ -376,9 +376,9 @@
         </main>
     </section>
 
-    <section id="communitySection" class="community-section relative z-20 w-full px-4 pt-4 pb-8 sm:pt-5 sm:pb-10" aria-label="Kartu komunitas">
-        <div class="w-full max-w-6xl mx-auto">
-            <div class="flex items-center justify-between gap-3 mb-5">
+    <section id="communitySection" class="community-section relative z-20 w-full pt-4 pb-8 sm:pt-5 sm:pb-10" aria-label="Kartu komunitas">
+        <div class="w-full">
+            <div class="flex items-center justify-between gap-3 mb-5 px-4 sm:px-8">
                 <p class="text-sm font-semibold text-white/80">Jelajahi komunitas</p>
                 <button id="communityMotionToggle" type="button" onclick="toggleCommunityMotion()" aria-pressed="false"
                     class="px-3 py-2 rounded-full border border-white/15 bg-black/50 text-white text-xs font-semibold hover:bg-white/10 transition-colors">
@@ -392,36 +392,36 @@
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-emerald-400/50 text-emerald-400 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-brands fa-spotify"></i><img data-community-image="0" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">Spotify</h3>
+                    <h3 data-community-title="0" class="text-xl font-bold text-white">Spotify</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Cari lagu, artis, dan album. Dengarkan preview langsung di Discord.</p>
+                <p data-community-description="0" class="text-sm leading-7 text-zinc-400">Cari lagu, artis, dan album. Dengarkan preview langsung di Discord.</p>
             </article>
             <article class="community-card rounded-[28px] border border-white/10 bg-gradient-to-br from-[#111113] to-[#080809] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-white/35 text-white flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-brands fa-x-twitter"></i><img data-community-image="1" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">X</h3>
+                    <h3 data-community-title="1" class="text-xl font-bold text-white">X</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Cari dan lihat profil, postingan, polling, kutipan, serta media.</p>
+                <p data-community-description="1" class="text-sm leading-7 text-zinc-400">Cari dan lihat profil, postingan, polling, kutipan, serta media.</p>
             </article>
             <article class="community-card rounded-[28px] border border-rose-400/15 bg-gradient-to-br from-[#151012] to-[#090809] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-rose-500/45 text-rose-400 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-brands fa-tiktok"></i><img data-community-image="2" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">TikTok</h3>
+                    <h3 data-community-title="2" class="text-xl font-bold text-white">TikTok</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Temukan profil dan video terbaru dari kreator favoritmu.</p>
+                <p data-community-description="2" class="text-sm leading-7 text-zinc-400">Temukan profil dan video terbaru dari kreator favoritmu.</p>
             </article>
             <article class="community-card rounded-[28px] border border-sky-400/15 bg-gradient-to-br from-[#101215] to-[#08090a] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-sky-400/50 text-sky-400 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-solid fa-cube"></i><img data-community-image="3" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">Roblox</h3>
+                    <h3 data-community-title="3" class="text-xl font-bold text-white">Roblox</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Jelajahi profil, grup, game, item, dan outfit komunitas.</p>
+                <p data-community-description="3" class="text-sm leading-7 text-zinc-400">Jelajahi profil, grup, game, item, dan outfit komunitas.</p>
             </article>
                 </div>
             </div>
@@ -432,36 +432,36 @@
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-emerald-400/50 text-emerald-400 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-solid fa-chart-line"></i><img data-community-image="4" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">Rolimons</h3>
+                    <h3 data-community-title="4" class="text-xl font-bold text-white">Rolimons</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Pantau nilai dan RAP pemain dengan grafik dari waktu ke waktu.</p>
+                <p data-community-description="4" class="text-sm leading-7 text-zinc-400">Pantau nilai dan RAP pemain dengan grafik dari waktu ke waktu.</p>
             </article>
             <article class="community-card rounded-[28px] border border-indigo-400/15 bg-gradient-to-br from-[#111014] to-[#080809] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-indigo-400/45 text-indigo-300 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-brands fa-discord"></i><img data-community-image="5" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">Discord</h3>
+                    <h3 data-community-title="5" class="text-xl font-bold text-white">Discord</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Ngobrol, berbagi karya, dan terhubung dengan anggota komunitas.</p>
+                <p data-community-description="5" class="text-sm leading-7 text-zinc-400">Ngobrol, berbagi karya, dan terhubung dengan anggota komunitas.</p>
             </article>
             <article class="community-card rounded-[28px] border border-red-400/15 bg-gradient-to-br from-[#151011] to-[#090809] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-red-400/45 text-red-400 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-brands fa-youtube"></i><img data-community-image="6" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">YouTube</h3>
+                    <h3 data-community-title="6" class="text-xl font-bold text-white">YouTube</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Tonton video, ikuti kreator, dan bagikan konten favorit.</p>
+                <p data-community-description="6" class="text-sm leading-7 text-zinc-400">Tonton video, ikuti kreator, dan bagikan konten favorit.</p>
             </article>
             <article class="community-card rounded-[28px] border border-purple-400/15 bg-gradient-to-br from-[#131015] to-[#090809] p-6 sm:p-7">
                 <div class="flex items-center gap-4 mb-5">
                     <span class="community-card-icon relative w-14 h-14 rounded-2xl border border-purple-400/45 text-purple-300 flex items-center justify-center text-2xl overflow-hidden">
                         <i data-community-icon class="fa-solid fa-gamepad"></i><img data-community-image="7" alt="" class="hidden absolute inset-0 w-full h-full object-cover">
                     </span>
-                    <h3 class="text-xl font-bold text-white">Strinova</h3>
+                    <h3 data-community-title="7" class="text-xl font-bold text-white">Strinova</h3>
                 </div>
-                <p class="text-sm leading-7 text-zinc-400">Temukan kabar, panduan, dan aktivitas komunitas Strinova.</p>
+                <p data-community-description="7" class="text-sm leading-7 text-zinc-400">Temukan kabar, panduan, dan aktivitas komunitas Strinova.</p>
             </article>
                 </div>
             </div>
@@ -660,7 +660,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Bio / Deskripsi</label>
+                        <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Teks di bawah nama / peran (misal: Kreator Game)</label>
                         <input id="inputBio" type="text" class="w-full bg-black/40 border border-white/15 focus:border-purple-500 rounded-lg px-3 py-2 text-xs text-white outline-none">
                     </div>
 
@@ -680,11 +680,11 @@
 
                     <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Label Bawah (misal: Strinova ID:)</label>
+                            <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Judul bagian bawah (misal: MY GAME)</label>
                             <input id="inputBottomLabel" type="text" class="w-full bg-black/40 border border-white/15 focus:border-purple-500 rounded-lg px-3 py-2 text-xs text-white outline-none">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Nomor / Teks ID Bawah</label>
+                            <label class="block text-[11px] font-semibold text-zinc-300 mb-1">Isi bagian bawah (misal: daftar game)</label>
                             <input id="inputBottomValue" type="text" class="w-full bg-black/40 border border-white/15 focus:border-purple-500 rounded-lg px-3 py-2 text-xs text-white outline-none">
                         </div>
                     </div>
@@ -713,35 +713,93 @@
                     </div>
 
                     <div class="bg-[#1e1c24] border border-white/10 rounded-xl p-3.5 space-y-2.5">
-                        <div>
-                            <p class="text-xs font-bold text-white">Foto ikon kartu Jelajahi Komunitas</p>
-                            <p class="text-[10px] text-zinc-400 mt-1">Upload gambar untuk mengganti ikon di tiap kartu.</p>
-                        </div>
+                        <p class="text-xs font-bold text-white">Logo tombol sosial media</p>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                            <label class="text-[10px] text-zinc-300">Spotify
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard0')" class="mt-1 block w-full text-[9px] text-zinc-400">
-                            </label>
-                            <label class="text-[10px] text-zinc-300">X
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard1')" class="mt-1 block w-full text-[9px] text-zinc-400">
+                            <label class="text-[10px] text-zinc-300">Discord
+                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'linkIconDiscord')" class="mt-1 block w-full text-[9px] text-zinc-400">
                             </label>
                             <label class="text-[10px] text-zinc-300">TikTok
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard2')" class="mt-1 block w-full text-[9px] text-zinc-400">
+                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'linkIconTiktok')" class="mt-1 block w-full text-[9px] text-zinc-400">
                             </label>
-                            <label class="text-[10px] text-zinc-300">Roblox
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard3')" class="mt-1 block w-full text-[9px] text-zinc-400">
-                            </label>
-                            <label class="text-[10px] text-zinc-300">Rolimons
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard4')" class="mt-1 block w-full text-[9px] text-zinc-400">
-                            </label>
-                            <label class="text-[10px] text-zinc-300">Discord
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard5')" class="mt-1 block w-full text-[9px] text-zinc-400">
+                            <label class="text-[10px] text-zinc-300">X
+                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'linkIconTwitter')" class="mt-1 block w-full text-[9px] text-zinc-400">
                             </label>
                             <label class="text-[10px] text-zinc-300">YouTube
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard6')" class="mt-1 block w-full text-[9px] text-zinc-400">
+                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'linkIconYoutube')" class="mt-1 block w-full text-[9px] text-zinc-400">
                             </label>
-                            <label class="text-[10px] text-zinc-300">Strinova
-                                <input type="file" accept="image/*" onchange="handleImageUpload(event, 'communityCard7')" class="mt-1 block w-full text-[9px] text-zinc-400">
-                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#1e1c24] border border-white/10 rounded-xl p-3.5 space-y-2.5">
+                        <div>
+                            <p class="text-xs font-bold text-white">Edit kartu Jelajahi Komunitas</p>
+                            <p class="text-[10px] text-zinc-400 mt-1">Atur logo/foto, judul, dan deskripsi setiap kartu.</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 1</p>
+                                <input id="communityCardTitle0" type="text" aria-label="Judul kartu 1" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription0" rows="2" aria-label="Deskripsi kartu 1" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 1" onchange="handleImageUpload(event, 'communityCard0')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 2</p>
+                                <input id="communityCardTitle1" type="text" aria-label="Judul kartu 2" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription1" rows="2" aria-label="Deskripsi kartu 2" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 2" onchange="handleImageUpload(event, 'communityCard1')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 3</p>
+                                <input id="communityCardTitle2" type="text" aria-label="Judul kartu 3" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription2" rows="2" aria-label="Deskripsi kartu 3" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 3" onchange="handleImageUpload(event, 'communityCard2')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 4</p>
+                                <input id="communityCardTitle3" type="text" aria-label="Judul kartu 4" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription3" rows="2" aria-label="Deskripsi kartu 4" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 4" onchange="handleImageUpload(event, 'communityCard3')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 5</p>
+                                <input id="communityCardTitle4" type="text" aria-label="Judul kartu 5" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription4" rows="2" aria-label="Deskripsi kartu 5" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 5" onchange="handleImageUpload(event, 'communityCard4')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 6</p>
+                                <input id="communityCardTitle5" type="text" aria-label="Judul kartu 6" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription5" rows="2" aria-label="Deskripsi kartu 6" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 6" onchange="handleImageUpload(event, 'communityCard5')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 7</p>
+                                <input id="communityCardTitle6" type="text" aria-label="Judul kartu 7" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription6" rows="2" aria-label="Deskripsi kartu 7" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 7" onchange="handleImageUpload(event, 'communityCard6')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
+                            <div class="rounded-lg border border-white/10 p-2.5 space-y-2">
+                                <p class="text-[10px] font-bold text-zinc-200">Kartu 8</p>
+                                <input id="communityCardTitle7" type="text" aria-label="Judul kartu 8" placeholder="Judul"
+                                    class="w-full bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none">
+                                <textarea id="communityCardDescription7" rows="2" aria-label="Deskripsi kartu 8" placeholder="Deskripsi"
+                                    class="w-full resize-y bg-black/40 border border-white/15 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none"></textarea>
+                                <input type="file" accept="image/*" aria-label="Foto kartu 8" onchange="handleImageUpload(event, 'communityCard7')" class="block w-full text-[9px] text-zinc-400">
+                            </div>
                         </div>
                     </div>
 
@@ -981,6 +1039,16 @@
             bgImage: "",
             lowerBgColor: "#d946ef",
             communityImages: ["", "", "", "", "", "", "", ""],
+            communityCards: [
+                { title: "Spotify", description: "Cari lagu, artis, dan album. Dengarkan preview langsung di Discord." },
+                { title: "X", description: "Cari dan lihat profil, postingan, polling, kutipan, serta media." },
+                { title: "TikTok", description: "Temukan profil dan video terbaru dari kreator favoritmu." },
+                { title: "Roblox", description: "Jelajahi profil, grup, game, item, dan outfit komunitas." },
+                { title: "Rolimons", description: "Pantau nilai dan RAP pemain dengan grafik dari waktu ke waktu." },
+                { title: "Discord", description: "Ngobrol, berbagi karya, dan terhubung dengan anggota komunitas." },
+                { title: "YouTube", description: "Tonton video, ikuti kreator, dan bagikan konten favorit." },
+                { title: "Strinova", description: "Temukan kabar, panduan, dan aktivitas komunitas Strinova." }
+            ],
             crtEnabled: true,
             fontColors: {
                 primary: "#ffffff",
@@ -1044,6 +1112,12 @@
                         communityImages: Array.isArray(parsed.communityImages)
                             ? DEFAULT_DATA.communityImages.map((_, index) => parsed.communityImages[index] || "")
                             : [...DEFAULT_DATA.communityImages],
+                        communityCards: Array.isArray(parsed.communityCards)
+                            ? DEFAULT_DATA.communityCards.map((card, index) => ({
+                                ...card,
+                                ...(parsed.communityCards[index] || {})
+                            }))
+                            : DEFAULT_DATA.communityCards.map(card => ({ ...card })),
                         fontColors: { ...DEFAULT_DATA.fontColors, ...(parsed.fontColors || {}) },
                         audio: { ...DEFAULT_DATA.audio, ...(parsed.audio || {}) }
                     };
@@ -1103,6 +1177,14 @@
                 image.classList.toggle("hidden", !imageSource);
                 image.parentElement.querySelector("[data-community-icon]").classList.toggle("hidden", Boolean(imageSource));
             });
+            document.querySelectorAll("[data-community-title]").forEach(title => {
+                const index = Number(title.dataset.communityTitle);
+                title.textContent = appData.communityCards[index]?.title ?? DEFAULT_DATA.communityCards[index].title;
+            });
+            document.querySelectorAll("[data-community-description]").forEach(description => {
+                const index = Number(description.dataset.communityDescription);
+                description.textContent = appData.communityCards[index]?.description ?? DEFAULT_DATA.communityCards[index].description;
+            });
             const primaryColor = appData.fontColors.primary || DEFAULT_DATA.fontColors.primary;
             const communityColor = appData.fontColors.community || DEFAULT_DATA.fontColors.community;
             const lowerBgColor = /^#[0-9a-f]{6}$/i.test(appData.lowerBgColor || "")
@@ -1147,7 +1229,13 @@
                 btn.style.backgroundColor = link.bg;
                 btn.style.color = link.color;
 
-                if (link.isEmblem) {
+                if (link.image) {
+                    const image = document.createElement("img");
+                    image.src = link.image;
+                    image.alt = link.label;
+                    image.className = "w-full h-full object-cover";
+                    btn.appendChild(image);
+                } else if (link.isEmblem) {
                     btn.innerHTML = `
                         <svg viewBox="0 0 100 100" class="w-full h-full">
                             <path d="M0,0 L50,0 L0,50 Z" fill="#eab308"/>
@@ -1172,6 +1260,10 @@
             document.getElementById("inputProfileDetail").value = appData.profileDetail ?? DEFAULT_DATA.profileDetail;
             document.getElementById("inputBottomLabel").value = appData.bottomLabel;
             document.getElementById("inputBottomValue").value = appData.bottomValue;
+            appData.communityCards.forEach((card, index) => {
+                document.getElementById(`communityCardTitle${index}`).value = card.title;
+                document.getElementById(`communityCardDescription${index}`).value = card.description;
+            });
             document.getElementById("crtToggleCheckbox").checked = appData.crtEnabled;
             document.getElementById("leftCharUrlInput").value = appData.leftChar && appData.leftChar.startsWith("http") ? appData.leftChar : "";
             document.getElementById("rightCharUrlInput").value = appData.rightChar && appData.rightChar.startsWith("http") ? appData.rightChar : "";
@@ -1567,6 +1659,7 @@
             if (!file) return;
 
             const communityCardIndex = /^communityCard([0-7])$/.exec(targetType);
+            const socialIconMatch = /^linkIcon(Discord|Tiktok|Twitter|Youtube)$/.exec(targetType);
             const stateKeyByType = {
                 avatar: "avatar",
                 bg: "bgImage",
@@ -1574,7 +1667,7 @@
                 rightChar: "rightChar"
             };
             const stateKey = stateKeyByType[targetType];
-            if (!stateKey && !communityCardIndex) {
+            if (!stateKey && !communityCardIndex && !socialIconMatch) {
                 showToast("Jenis gambar tidak dikenal.");
                 return;
             }
@@ -1588,7 +1681,7 @@
                 image.onload = () => {
                     let imageData = originalDataUrl;
                     if (file.type !== "image/svg+xml" && file.type !== "image/gif") {
-                        const maxDimension = targetType === "bg" ? 1800 : communityCardIndex ? 512 : 1200;
+                        const maxDimension = targetType === "bg" ? 1800 : communityCardIndex ? 512 : socialIconMatch ? 256 : 1200;
                         const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
                         const canvas = document.createElement("canvas");
                         canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
@@ -1607,6 +1700,19 @@
 
                     if (communityCardIndex) {
                         appData.communityImages[Number(communityCardIndex[1])] = imageData;
+                    } else if (socialIconMatch) {
+                        const linkIdByInput = {
+                            Discord: "discord",
+                            Tiktok: "tiktok",
+                            Twitter: "twitter",
+                            Youtube: "youtube"
+                        };
+                        const link = appData.links.find(item => item.id === linkIdByInput[socialIconMatch[1]]);
+                        if (!link) {
+                            showToast("Tautan sosial untuk logo tersebut tidak ditemukan.");
+                            return;
+                        }
+                        link.image = imageData;
                     } else {
                         appData[stateKey] = imageData;
                     }
@@ -1692,6 +1798,10 @@
             appData.profileDetail = document.getElementById("inputProfileDetail").value.trim();
             appData.bottomLabel = document.getElementById("inputBottomLabel").value.trim();
             appData.bottomValue = document.getElementById("inputBottomValue").value.trim();
+            appData.communityCards = DEFAULT_DATA.communityCards.map((defaultCard, index) => ({
+                title: document.getElementById(`communityCardTitle${index}`).value.trim() || defaultCard.title,
+                description: document.getElementById(`communityCardDescription${index}`).value.trim()
+            }));
 
             const updateLink = (id, val) => {
                 const item = appData.links.find(l => l.id === id);
