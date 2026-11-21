@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PORTOFOLIO — Najwan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --community-bg: #771186;
+      --community-bg-start: #6d28d9;
+      --community-bg-end: #d946ef;
+      --card-bg: #111115;
+      --text-main: #ffffff;
+      --accent-green: #22c55e;
+      --avatar-size: 108px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--community-bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ================= TOP MUSIC BAR (TANPA TOMBOL ATUR PROFIL) ================= */
+    .top-bar {
+      position: fixed;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .pill-control {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 20, 28, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 7px 13px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      user-select: none;
+    }
+
+    .pill-control:hover {
+      background: rgba(34, 34, 48, 0.92);
+      transform: translateY(-1px);
+    }
+
+    .eq-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .eq-bars span {
+      width: 2.5px;
+      background: #60a5fa;
+      border-radius: 2px;
+      animation: eqBounce 0.9s infinite ease-in-out;
+    }
+
+    .eq-bars span:nth-child(1) { height: 5px; animation-delay: 0s; }
+    .eq-bars span:nth-child(2) { height: 11px; animation-delay: 0.2s; }
+    .eq-bars span:nth-child(3) { height: 7px; animation-delay: 0.4s; }
+
+    .pill-control.muted .eq-bars span {
+      animation: none;
+      height: 3px;
+      background: #9ca3af;
+    }
+
+    @keyframes eqBounce {
+      0%, 100% { height: 4px; }
+      50% { height: 12px; }
+    }
+
+    .song-title-pill {
+      max-width: 260px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: default;
+    }
+
+    .music-control {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 20, 28, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 7px 9px 7px 13px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .music-control input[type="range"] {
+      width: 94px;
+      height: 4px;
+      accent-color: #60a5fa;
+      cursor: pointer;
+      max-width: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-width 0.25s ease, opacity 0.2s ease;
+    }
+
+    .music-control.expanded input[type="range"] {
+      max-width: 94px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .volume-value {
+      min-width: 32px;
+      text-align: right;
+      font-size: 12px;
+      color: #e5e7eb;
+      max-width: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-width 0.25s ease, opacity 0.2s ease;
+    }
+
+    .music-control.expanded .volume-value {
+      max-width: 32px;
+      opacity: 1;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 76px 20px 44px;
+      overflow: hidden;
+      background-color: #161426;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.72) contrast(1.06);
+      z-index: 1;
+    }
+
+    .hero-crt-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(18, 16, 36, 0.55) 1.15px, transparent 1.15px),
+        linear-gradient(to bottom, rgba(16, 14, 30, 0.25) 0%, rgba(16, 14, 30, 0.45) 85%, rgba(217, 70, 239, 0.22) 100%);
+      background-size: 4px 4px, 100% 100%;
+    }
+
+    .hero-aura {
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: 50%;
+      width: calc(var(--avatar-size) + 14px);
+      height: calc(var(--avatar-size) + 14px);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: none;
+      background: conic-gradient(
+        from 0deg,
+        #61e8ff 0deg,
+        #58b8f4 45deg,
+        #d946ef 90deg,
+        #e879f9 135deg,
+        #61e8ff 180deg,
+        #58b8f4 225deg,
+        #d946ef 270deg,
+        #e879f9 315deg,
+        #61e8ff 360deg
+      );
+      box-shadow:
+        0 0 28px rgba(255, 77, 166, 0.72),
+        0 0 55px rgba(80, 202, 255, 0.48);
+      opacity: 0.92;
+      filter: blur(7px);
+      animation: rotatingAura 8s linear infinite;
+    }
+
+    .hero-aura::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 45%, rgba(250, 252, 255, 0.88), rgba(226, 232, 240, 0.16) 62%, rgba(15, 23, 42, 0) 74%);
+      filter: saturate(0.72);
+    }
+
+    .hero-aura::after {
+      content: '';
+      position: absolute;
+      inset: -130px;
+      z-index: -1;
+      border-radius: 50%;
+      background: conic-gradient(from 90deg, rgba(255, 61, 61, 0.18), rgba(255, 77, 166, 0.15), rgba(80, 202, 255, 0.16), rgba(69, 245, 176, 0.12), rgba(255, 61, 61, 0.18));
+      filter: blur(38px);
+      animation: rotatingAuraAfter 12s linear infinite reverse;
+    }
+
+    @keyframes rotatingAura {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes rotatingAuraAfter {
+      to { transform: rotate(-360deg); }
+    }
+
+    .hero-character {
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      height: 88%;
+      max-height: 465px;
+      width: auto;
+      object-fit: contain;
+      pointer-events: none;
+      mix-blend-mode: lighten;
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.55));
+    }
+
+    .hero-character.left {
+      left: 2%;
+      animation: characterFloat 4.4s ease-in-out -1.6s infinite;
+      filter:
+        drop-shadow(-3px 0 0 rgba(255, 61, 61, 0.72))
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+    }
+
+    .hero-character.right {
+      right: 2%;
+      animation: characterFloat 5s ease-in-out -2.2s infinite;
+      filter:
+        drop-shadow(3px 0 0 rgba(255, 77, 166, 0.72))
+        drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
+    }
+
+    .hero-character-glitch {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      height: 88%;
+      max-height: 465px;
+      width: auto;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+
+    .hero-character-glitch.left {
+      left: 2%;
+      filter: drop-shadow(-7px 0 0 rgba(96, 165, 250, 0.78))
+              drop-shadow(5px 0 0 rgba(217, 70, 239, 0.72));
+      animation: leftCharacterGlitch 3.8s steps(1, end) infinite;
+    }
+
+    .hero-character-glitch.right {
+      right: 2%;
+      filter: drop-shadow(7px 0 0 rgba(96, 165, 250, 0.78))
+              drop-shadow(-5px 0 0 rgba(217, 70, 239, 0.72));
+      animation: rightCharacterGlitch 4.2s steps(1, end) infinite;
+    }
+
+    @keyframes leftCharacterGlitch {
+      0%, 89%, 93%, 100% { opacity: 0; transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+      90% { opacity: 0.55; transform: translate(-9px, 2px); clip-path: inset(18% 0 58% 0); }
+      91% { opacity: 0.38; transform: translate(7px, -2px); clip-path: inset(62% 0 19% 0); }
+      92% { opacity: 0.48; transform: translate(-4px, 1px); clip-path: inset(38% 0 43% 0); }
+    }
+
+    @keyframes rightCharacterGlitch {
+      0%, 84%, 88%, 100% { opacity: 0; transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+      85% { opacity: 0.52; transform: translate(9px, -2px); clip-path: inset(24% 0 52% 0); }
+      86% { opacity: 0.36; transform: translate(-7px, 2px); clip-path: inset(68% 0 12% 0); }
+      87% { opacity: 0.46; transform: translate(4px, 0); clip-path: inset(43% 0 38% 0); }
+    }
+
+    @keyframes characterFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .hero-center {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .portfolio-heading {
+      position: relative;
+      font-family: 'Orbitron', 'Cinzel', Georgia, serif;
+      font-size: clamp(20px, 2.6vw, 27px);
+      font-weight: 800;
+      letter-spacing: 3.5px;
+      background: linear-gradient(90deg, #61e8ff 0%, #ffffff 42%, #a78bfa 72%, #d946ef 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow:
+        2px 0 0 rgba(217, 70, 239, 0.72),
+        -2px 0 0 rgba(96, 165, 250, 0.72),
+        0 0 12px rgba(96, 165, 250, 0.65);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      animation: portfolioGlitch 4.6s steps(1, end) infinite;
+    }
+
+    @keyframes portfolioGlitch {
+      0%, 88%, 93%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        letter-spacing: 3.5px;
+      }
+      89% {
+        transform: translate(-3px, 1px) skewX(-3deg);
+        filter: drop-shadow(3px 0 0 rgba(34, 211, 238, 0.75));
+        letter-spacing: 4.5px;
+      }
+      90% {
+        transform: translate(3px, -1px) skewX(3deg);
+        filter: drop-shadow(-3px 0 0 rgba(217, 70, 239, 0.78));
+        letter-spacing: 3px;
+      }
+      91% {
+        transform: translate(-1px, 0);
+        filter: drop-shadow(2px 0 0 rgba(96, 165, 250, 0.72));
+        letter-spacing: 4px;
+      }
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: var(--avatar-size);
+      height: var(--avatar-size);
+      margin-bottom: 14px;
+    }
+
+    .avatar-img {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      background: #1e1b2e;
+    }
+
+    .profile-bubbles {
+      position: absolute;
+      inset: -34px;
+      z-index: 4;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .profile-bubble {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.58);
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.92) 0 4%, transparent 5%),
+        radial-gradient(circle at 68% 72%, rgba(97, 232, 255, 0.28), transparent 38%),
+        radial-gradient(circle at 35% 72%, rgba(217, 70, 239, 0.22), transparent 42%);
+      box-shadow:
+        inset 3px 3px 6px rgba(255, 255, 255, 0.24),
+        inset -3px -3px 7px rgba(82, 170, 255, 0.18),
+        0 2px 10px rgba(217, 70, 239, 0.18);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      animation: bubbleFloat 5s ease-in-out infinite;
+    }
+
+    .profile-bubble:nth-child(1) { width: 21px; height: 21px; left: 5px; top: 24px; animation-delay: -1s; }
+    .profile-bubble:nth-child(2) { width: 13px; height: 13px; right: 11px; top: 12px; animation-delay: -3.2s; }
+    .profile-bubble:nth-child(3) { width: 28px; height: 28px; right: -3px; top: 66px; animation-delay: -2.1s; }
+    .profile-bubble:nth-child(4) { width: 16px; height: 16px; left: 18px; bottom: 4px; animation-delay: -4s; }
+    .profile-bubble:nth-child(5) { width: 10px; height: 10px; right: 34px; bottom: -2px; animation-delay: -0.5s; }
+    .profile-bubble:nth-child(6) { width: 8px; height: 8px; left: -6px; top: 69px; animation-delay: -2.7s; }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(3px, -8px) scale(1.05); }
+    }
+
+    .profile-frame {
+      position: absolute;
+      z-index: 5;
+      left: 50%;
+      top: 50%;
+      width: calc(var(--avatar-size) + 22px);
+      height: calc(var(--avatar-size) + 22px);
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+      pointer-events: none;
+      filter: drop-shadow(0 0 8px rgba(97, 232, 255, 0.38));
+    }
+
+    .profile-overlay {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      top: 50%;
+      width: calc(var(--avatar-size) + 70px);
+      height: calc(var(--avatar-size) + 134px);
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+
+    .speech-bubble {
+      position: absolute;
+      top: -22px;
+      right: -34px;
+      background: #ffffff;
+      color: #18181b;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 15px;
+      border-radius: 50%;
+      min-width: 52px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 5;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 10px;
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 4px;
+      width: 7px;
+      height: 7px;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+
+    .speech-bubble.collapsed {
+      padding: 8px 13px;
+      letter-spacing: 1.5px;
+    }
+
+    .profile-name {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: clamp(32px, 4.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 1.5px;
+      background: linear-gradient(135deg, #f3d1ff 0%, #c084fc 42%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.8);
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+      margin-bottom: 16px;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+    }
+
+    .social-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .my-game-title {
+      position: relative;
+      font-family: 'Orbitron', 'Cinzel', Georgia, serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #61e8ff 0%, #ffffff 38%, #a78bfa 68%, #d946ef 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow:
+        2px 0 0 rgba(217, 70, 239, 0.72),
+        -2px 0 0 rgba(96, 165, 250, 0.72),
+        0 0 12px rgba(96, 165, 250, 0.65);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      animation: myGameTitleGlitch 4.2s steps(1, end) infinite;
+    }
+
+    @keyframes myGameTitleGlitch {
+      0%, 86%, 91%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        letter-spacing: 3px;
+      }
+      87% {
+        transform: translate(-3px, 1px) skewX(-4deg);
+        filter: drop-shadow(3px 0 0 rgba(34, 211, 238, 0.8));
+        letter-spacing: 4px;
+      }
+      88% {
+        transform: translate(3px, -1px) skewX(3deg);
+        filter: drop-shadow(-3px 0 0 rgba(217, 70, 239, 0.82));
+        letter-spacing: 2.5px;
+      }
+      89% {
+        transform: translate(-1px, 0);
+        filter: drop-shadow(2px 0 0 rgba(96, 165, 250, 0.72));
+        letter-spacing: 3.5px;
+      }
+    }
+
+    .my-game-list {
+      font-family: 'Orbitron', 'Cinzel', Georgia, serif;
+      font-size: clamp(13px, 1.85vw, 19px);
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      background: linear-gradient(90deg, #93c5fd 0%, #ffffff 48%, #c4b5fd 78%, #f0abfc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow:
+        2px 0 0 rgba(217, 70, 239, 0.58),
+        -2px 0 0 rgba(34, 211, 238, 0.58),
+        0 0 14px rgba(129, 140, 248, 0.55);
+      line-height: 1.4;
+      word-break: break-word;
+      animation: myGameListGlitch 5s steps(1, end) infinite;
+    }
+
+    @keyframes myGameListGlitch {
+      0%, 78%, 83%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        opacity: 1;
+      }
+      79% {
+        transform: translate(3px, 0);
+        filter: drop-shadow(-3px 0 0 rgba(34, 211, 238, 0.72));
+        opacity: 0.82;
+      }
+      80% {
+        transform: translate(-4px, 1px);
+        filter: drop-shadow(3px 0 0 rgba(217, 70, 239, 0.72));
+        opacity: 0.96;
+      }
+      81% {
+        transform: translate(2px, -1px);
+        filter: drop-shadow(-2px 0 0 rgba(96, 165, 250, 0.72));
+        opacity: 0.88;
+      }
+    }
+
+    /* ================= BAGIAN KOMUNITAS ================= */
+    .community-section {
+      width: 100%;
+      background: linear-gradient(135deg, var(--community-bg-start) 0%, var(--community-bg-end) 100%);
+      padding: 14px 0 36px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .community-header {
+      max-width: 1360px;
+      margin: 0 auto 16px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .community-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.2px;
+    }
+
+    .pause-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(24, 16, 36, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text-main);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .pause-btn:hover {
+      background: rgba(24, 16, 36, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .marquee-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .marquee-row {
+      display: flex;
+      width: max-content;
+      gap: 0;
+      will-change: transform;
+    }
+
+    .marquee-row.move-right {
+      animation: scrollRight 34s linear infinite;
+    }
+
+    .marquee-row.move-left {
+      animation: scrollLeft 34s linear infinite;
+    }
+
+    .marquee-wrapper:hover .marquee-row,
+    .marquee-wrapper.paused .marquee-row {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-group {
+      display: grid;
+      grid-template-columns: repeat(4, 310px);
+      gap: 18px;
+      padding-right: 18px;
+    }
+
+    .community-card {
+      position: relative;
+      background-color: var(--card-bg);
+      border-radius: 22px;
+      padding: 0;
+      min-height: 0;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.32);
+      border: 2px solid rgba(217, 70, 239, 0.45);
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .community-image {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      background: #08080b;
+    }
+
+    .community-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-character { height: 72%; opacity: 0.9; }
+      .hero-character.left { left: -2%; }
+      .hero-character.right { right: -2%; }
+    }
+
+    @media (max-width: 720px) {
+      .hero { min-height: 480px; padding-top: 72px; }
+      .hero-character { height: 54%; opacity: 0.65; }
+      .marquee-group { grid-template-columns: repeat(4, 270px); }
+      .song-title-pill { max-width: 155px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-character { animation: none; }
+      .hero-aura,
+      .hero-aura::after,
+      .profile-bubbles,
+      .profile-frame { animation: none; }
+      .portfolio-heading,
+      .my-game-title,
+      .my-game-list { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div id="musicControl" class="music-control">
+      <button id="musicToggleBtn" class="pill-control" type="button" aria-label="Nyalakan atau matikan musik">
+        <span class="eq-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span id="musicStatusText">On</span>
+      </button>
+      <input id="volumeSlider" type="range" min="0" max="100" value="70" aria-label="Atur volume musik" />
+      <span id="volumeValue" class="volume-value">70%</span>
+    </div>
+    <div id="songPill" class="pill-control song-title-pill">
+      <span>🎵</span>
+      <span id="songTitleDisplay">Hope Is the Thing With Feathers_320k</span>
+    </div>
+  </header>
+
+  <audio id="bgMusic" loop preload="auto" autoplay></audio>
+
+  <section class="hero" id="heroSection">
+    <img id="heroWallpaper" class="hero-bg" src="" alt="Hero Background" />
+    <div class="hero-crt-overlay"></div>
+
+    <img id="charLeftImg" class="hero-character left" src="" alt="Karakter Kiri" />
+    <img id="charRightImg" class="hero-character right" src="" alt="Karakter Kanan" />
+
+    <div class="hero-center">
+      <h1 id="portfolioTitle" class="portfolio-heading">PORTOFOLIO</h1>
+
+      <div class="avatar-wrapper">
+        <div class="hero-aura" aria-hidden="true"></div>
+        <img id="avatarImg" class="avatar-img" src="" alt="Avatar Najwan" />
+        <div class="profile-bubbles" aria-hidden="true">
+          <span class="profile-bubble"></span>
+          <span class="profile-bubble"></span>
+          <span class="profile-bubble"></span>
+          <span class="profile-bubble"></span>
+          <span class="profile-bubble"></span>
+          <span class="profile-bubble"></span>
+        </div>
+        <img class="profile-frame" src="profile-frame.png" alt="" aria-hidden="true" />
+        <img class="profile-overlay" src="profile-overlay.png" alt="" aria-hidden="true" />
+        <div id="speechBubble" class="speech-bubble">Hii</div>
+      </div>
+
+      <h2 id="profileName" class="profile-name">Najwan</h2>
+      <p id="profileRole" class="profile-role">Kreator Game</p>
+
+      <nav id="socialLinksContainer" class="social-links" aria-label="Tautan Sosial dan Game"></nav>
+
+      <h3 id="myGameHeading" class="my-game-title">MY GAME</h3>
+      <p id="myGameList" class="my-game-list"></p>
+    </div>
+  </section>
+
+  <section class="community-section">
+    <div class="community-header">
+      <h2 class="community-title">Jelajahi komunitas</h2>
+      <button id="pauseMotionBtn" class="pause-btn" type="button">
+        <span id="pauseIcon">❚❚</span>
+        <span id="pauseText">Jeda gerakan</span>
+      </button>
+    </div>
+
+    <div id="marqueeWrapper" class="marquee-wrapper">
+      <div id="rowTop" class="marquee-row move-right"></div>
+      <div id="rowBottom" class="marquee-row move-left"></div>
+    </div>
+  </section>
+
+  <script>
+    /* =========================================================================
+       DATA KUSTOMISASI PEMILIK
+       Edit data dan file aset di folder yang sama untuk menyesuaikan portofolio.
+       ========================================================================= */
+    const PORTFOLIO_DATA = {
+      theme: {
+        communityBackground: "#d946ef",
+        communityBackgroundStart: "#6d28d9",
+        communityBackgroundEnd: "#d946ef",
+        textColor: "#ffffff",
+        avatarSize: "108px"
+      },
+      music: {
+        title: "Hope Is the Thing With Feathers",
+        shortTitle: "Hope Is the Thing With Feathers",
+        src: "hope-is-the-thing-with-feathers.mp3",
+        defaultOn: true,
+        defaultVolume: 0.7
+      },
+      hero: {
+        portfolioTitle: "PORTOFOLIO",
+        wallpaper: "hero-wallpaper.gif",
+        characterLeft: "character-left.png",
+        characterRight: "character-right.png",
+        avatar: "avatar-firefly.gif",
+        bubbleText: "Hii",
+        bubbleCollapsedText: "...",
+        name: "Najwan",
+        role: "Kreator Game",
+        myGameHeading: "MY GAME",
+        gamesText: "Genshin,Hsr,Hi3,Zzz,Wuwa,Strinova,BlueArchive,Nte,Coc"
+      },
+      socialLinks: [
+        { name: "Discord", icon: "discord.jpg", url: "https://discord.com/users/782283099467415553" },
+        { name: "TikTok", icon: "tiktok.jfif", url: "https://www.tiktok.com/@najwan816?is_from_webapp=1&sender_device=pc" },
+        { name: "YouTube", icon: "youtube.jfif", url: "https://www.youtube.com/@najwana9678" },
+        { name: "HoYoLAB", icon: "hoyolab-firefly.jfif", url: "https://www.hoyolab.com/accountCenter/postList?id=75141180" }
+      ],
+      communityCards: [
+        {
+          title: "Honkai impact 3Rd",
+          icon: "game-hi3.png"
+        },
+        {
+          title: "Genshin Impact",
+          icon: "game-genshin.png"
+        },
+        {
+          title: "Honkai Star rail",
+          icon: "game-hsr.png"
+        },
+        {
+          title: "Zenless Zone Zero",
+          icon: "game-zzz.png"
+        },
+        {
+          title: "Wuthering Waves",
+          icon: "game-wuwa.png"
+        },
+        {
+          title: "Strinova",
+          icon: "game-strinova.png"
+        },
+        {
+          title: "Blue Archive",
+          icon: "game-blue-archive.png"
+        },
+        {
+          title: "Neverness to Everness",
+          icon: "game-nte.png"
+        }
+      ]
+    };
+
+    function initPortfolio() {
+      const root = document.documentElement;
+      root.style.setProperty("--community-bg", PORTFOLIO_DATA.theme.communityBackground);
+      root.style.setProperty("--community-bg-start", PORTFOLIO_DATA.theme.communityBackgroundStart);
+      root.style.setProperty("--community-bg-end", PORTFOLIO_DATA.theme.communityBackgroundEnd);
+      root.style.setProperty("--text-main", PORTFOLIO_DATA.theme.textColor);
+      root.style.setProperty("--avatar-size", PORTFOLIO_DATA.theme.avatarSize);
+
+      document.getElementById("portfolioTitle").textContent = PORTFOLIO_DATA.hero.portfolioTitle;
+      document.getElementById("heroWallpaper").src = PORTFOLIO_DATA.hero.wallpaper;
+      document.getElementById("charLeftImg").src = PORTFOLIO_DATA.hero.characterLeft;
+      document.getElementById("charRightImg").src = PORTFOLIO_DATA.hero.characterRight;
+      document.getElementById("avatarImg").src = PORTFOLIO_DATA.hero.avatar;
+      document.getElementById("speechBubble").textContent = PORTFOLIO_DATA.hero.bubbleText;
+      document.getElementById("profileName").textContent = PORTFOLIO_DATA.hero.name;
+      document.getElementById("profileRole").textContent = PORTFOLIO_DATA.hero.role;
+      document.getElementById("myGameHeading").textContent = PORTFOLIO_DATA.hero.myGameHeading;
+      document.getElementById("myGameList").textContent = PORTFOLIO_DATA.hero.gamesText;
+
+      ["left", "right"].forEach((side) => {
+        const original = document.getElementById(side === "left" ? "charLeftImg" : "charRightImg");
+        for (let i = 0; i < 2; i += 1) {
+          const glitch = original.cloneNode(true);
+          glitch.removeAttribute("id");
+          glitch.setAttribute("aria-hidden", "true");
+          glitch.className = `hero-character-glitch ${side}`;
+          glitch.style.animationDelay = i === 0 ? "0s" : `${side === "left" ? 1.15 : 1.35}s`;
+          original.parentNode.insertBefore(glitch, original);
+        }
+      });
+
+      const socialContainer = document.getElementById("socialLinksContainer");
+      socialContainer.innerHTML = PORTFOLIO_DATA.socialLinks
+        .map(
+          (item) => `
+            <a class="social-btn" href="${item.url}" target="_blank" rel="noopener noreferrer" title="${item.name}" aria-label="${item.name}">
+              <img src="${item.icon}" alt="${item.name}" />
+            </a>
+          `
+        )
+        .join("");
+
+      const topCards = PORTFOLIO_DATA.communityCards.slice(0, 4);
+      const bottomCards = PORTFOLIO_DATA.communityCards.slice(4, 8);
+
+      const createGroupHTML = (cards) => `
+        <div class="marquee-group">
+          ${cards
+            .map(
+              (card) => `
+                <article class="community-card">
+                  <img class="community-image" src="${card.icon}" alt="${card.title}" />
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      `;
+
+      document.getElementById("rowTop").innerHTML = createGroupHTML(topCards) + createGroupHTML(topCards);
+      document.getElementById("rowBottom").innerHTML = createGroupHTML(bottomCards) + createGroupHTML(bottomCards);
+
+      const audioEl = document.getElementById("bgMusic");
+      const toggleBtn = document.getElementById("musicToggleBtn");
+      const statusText = document.getElementById("musicStatusText");
+      const songDisplay = document.getElementById("songTitleDisplay");
+      const songPill = document.getElementById("songPill");
+      const volumeSlider = document.getElementById("volumeSlider");
+      const volumeValue = document.getElementById("volumeValue");
+      const musicControl = document.getElementById("musicControl");
+
+      songDisplay.textContent = PORTFOLIO_DATA.music.shortTitle;
+      songPill.title = PORTFOLIO_DATA.music.title;
+      audioEl.src = PORTFOLIO_DATA.music.src;
+      audioEl.volume = PORTFOLIO_DATA.music.defaultVolume;
+      volumeSlider.value = Math.round(audioEl.volume * 100);
+      volumeValue.textContent = `${volumeSlider.value}%`;
+
+      let isMusicOn = PORTFOLIO_DATA.music.defaultOn;
+
+      function updateMusicUI() {
+        statusText.textContent = isMusicOn ? "On" : "Off";
+        toggleBtn.classList.toggle("muted", !isMusicOn);
+      }
+
+      async function playMusic() {
+        try {
+          await audioEl.play();
+          isMusicOn = true;
+          toggleBtn.title = "Matikan musik";
+        } catch (error) {
+          isMusicOn = false;
+          toggleBtn.title = `Musik gagal diputar: ${error.message}`;
+        }
+        updateMusicUI();
+      }
+
+      updateMusicUI();
+      if (isMusicOn) playMusic();
+
+      volumeSlider.addEventListener("input", () => {
+        const volume = Number(volumeSlider.value) / 100;
+        audioEl.volume = volume;
+        volumeValue.textContent = `${volumeSlider.value}%`;
+
+        if (volume === 0) {
+          isMusicOn = false;
+          audioEl.pause();
+        } else if (audioEl.paused) {
+          isMusicOn = true;
+          playMusic();
+        }
+        updateMusicUI();
+      });
+
+      const resumeAfterUserGesture = () => {
+        if (isMusicOn && audioEl.paused) playMusic();
+      };
+      window.addEventListener("pointerdown", resumeAfterUserGesture, { once: true });
+      window.addEventListener("keydown", resumeAfterUserGesture, { once: true });
+
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        musicControl.classList.toggle("expanded");
+        if (isMusicOn && !audioEl.paused) {
+          isMusicOn = false;
+          audioEl.pause();
+          toggleBtn.title = "Nyalakan musik";
+          updateMusicUI();
+        } else {
+          isMusicOn = true;
+          updateMusicUI();
+          playMusic();
+        }
+      });
+
+      const pauseBtn = document.getElementById("pauseMotionBtn");
+      const pauseIcon = document.getElementById("pauseIcon");
+      const pauseText = document.getElementById("pauseText");
+      const marqueeWrapper = document.getElementById("marqueeWrapper");
+      let isPaused = false;
+
+      pauseBtn.addEventListener("click", () => {
+        isPaused = !isPaused;
+        marqueeWrapper.classList.toggle("paused", isPaused);
+        pauseIcon.textContent = isPaused ? "▶" : "❚❚";
+        pauseText.textContent = isPaused ? "Lanjutkan gerakan" : "Jeda gerakan";
+      });
+
+      const speechBubble = document.getElementById("speechBubble");
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (window.scrollY > 35) {
+            speechBubble.textContent = PORTFOLIO_DATA.hero.bubbleCollapsedText;
+            speechBubble.classList.add("collapsed");
+          } else {
+            speechBubble.textContent = PORTFOLIO_DATA.hero.bubbleText;
+            speechBubble.classList.remove("collapsed");
+          }
+        },
+        { passive: true }
+      );
+    }
+
+    initPortfolio();
+  </script>
+</body>
+</html>
